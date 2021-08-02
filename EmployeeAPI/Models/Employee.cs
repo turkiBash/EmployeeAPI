@@ -1,4 +1,6 @@
-﻿namespace EmployeeAPI.Models
+﻿using System;
+
+namespace EmployeeAPI.Models
 {
     public class Employee
     {
@@ -6,5 +8,7 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public bool IsAttended { get; set; }
+        public DateTime Date { get; set; }
     }
+
 }
