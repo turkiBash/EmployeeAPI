@@ -1,6 +1,5 @@
 ﻿using EmployeeAPI.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -14,31 +13,23 @@ namespace EmployeesAPI.Controllers
     {
         // GET: api/<EmployeesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> Get(Employee employee)
         {
-            return new string[] { "FirstName", "LastName", "id" };
+            return new string[] { employee.FirstName, employee.LastName };
         }
 
         // GET api/<EmployeesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return Ok(id).ToString();
+            return Ok(id);
         }
 
         // POST api/<EmployeesController>
         [HttpPost]
-        public void CreatEmployee([FromBody] string FirstName, string LastName, int id, DateTime date)
+        public async Task<IActionResult> Post(Employee employee)
         {
-            var employee = new Employee
-            {
-                FirstName = FirstName,
-                LastName = LastName,
-                Id = id,
-                Date = date
-            };
-            
-
+            return Ok(employee);
         }
 
         // PUT api/<EmployeesController>/5
